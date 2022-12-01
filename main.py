@@ -63,7 +63,16 @@ class LinkedList:
         itr.next = itr.next.next
 
     def remove_value(self, val):
-        pass
+        if self.head is None:
+            print("No Elements")
+            return
+
+        itr = self.head
+        while itr and itr.next.data != val:
+            itr = itr.next
+
+        itr.next = itr.next.next
+
 
     def insert_at_index(self, idx: int, data: object):
         pass
@@ -92,6 +101,8 @@ if __name__ == '__main__':
     ll.print_ll()
     ll.insert_values([1, 22, 66, 77])
     ll.print_ll()
+    ll.remove_value(22)
+    ll.remove_value(77)
     ll.print_ll()
 
 
