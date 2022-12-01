@@ -75,6 +75,7 @@ class LinkedList:
 
 
     def insert_at_index(self, idx: int, data: object):
+        # TODO if index out of range
         if idx == 0 or self.head is None:
             self.insert_at_beginning(data)
             return
@@ -92,7 +93,10 @@ class LinkedList:
             return
 
         itr = self.head
-        while itr and itr.data =
+        while itr and itr.data != data_after:
+            itr = itr.next
+
+        itr.next = Node(data=data_to_insert, next=itr.next.next)
 
 
 if __name__ == '__main__':
@@ -100,7 +104,8 @@ if __name__ == '__main__':
     ll.print_ll()
     print(f'll.len(): {ll.len_ll()}')
     ll.insert_values([22, 33, 44, 34, 36, 76])
-    ll.insert_at_index(0, 600)
+    ll.print_ll()
+    ll.insert_after_value(22, 600)
     ll.print_ll()
     ll.remove_index(3)
     ll.print_ll()
