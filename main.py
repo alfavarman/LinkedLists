@@ -75,11 +75,24 @@ class LinkedList:
 
 
     def insert_at_index(self, idx: int, data: object):
-        pass
+        if idx == 0 or self.head is None:
+            self.insert_at_beginning(data)
+            return
+        itr = self.head
+        counter = 0
+        while itr and counter < idx -1:
+            counter += 1
+            itr = itr.next
+        itr.next = Node(data=data, next=itr.next.next)
+
 
     def insert_after_value(self, data_after: object, data_to_insert: object):
-        pass
+        if self.head is None:
+            self.insert_at_beginning(data_to_insert)
+            return
 
+        itr = self.head
+        while itr and itr.data =
 
 
 if __name__ == '__main__':
@@ -87,6 +100,7 @@ if __name__ == '__main__':
     ll.print_ll()
     print(f'll.len(): {ll.len_ll()}')
     ll.insert_values([22, 33, 44, 34, 36, 76])
+    ll.insert_at_index(0, 600)
     ll.print_ll()
     ll.remove_index(3)
     ll.print_ll()
